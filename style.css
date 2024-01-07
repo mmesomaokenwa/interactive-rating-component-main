@@ -105,6 +105,8 @@ main {
     border: none;
     border-radius: 20px;
     cursor: pointer;
+    position: relative;
+    transition: all .3s;
 }
 
 .rating-end img {
@@ -142,4 +144,60 @@ main {
     border-radius: 20px;
     background-color: var(--clr-tertiary-alpha);
     color: var(--clr-accent);
+}
+
+.button-clicked {
+    color: transparent !important;
+    width: 40px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    margin-inline: auto;
+
+    &::after {
+        content: '';
+        width: 20px;
+        aspect-ratio: 1;
+        border: 4px solid var(--clr-font-secondary);
+        border-left-color: transparent;
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        translate: -50% -50%;
+        rotate: -45deg;
+        animation: rotate 2.5s linear forwards;
+    }
+
+    &::before {
+        content: '';
+        width: 20px;
+        aspect-ratio: 2 / 1;
+        border: 4px solid var(--clr-font-secondary);
+        border-top-color: transparent;
+        border-right-color: transparent;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        translate: -50% -50%;
+        scale: 0;
+        animation: scale .3s linear 2.5s forwards;
+    }
+}
+
+@keyframes rotate {
+    90% {
+        rotate: 1200deg;
+        scale: 1;
+    }
+
+    100% {
+        scale: 0;
+    }
+}
+
+@keyframes scale {
+    to {
+        scale: 1;
+        rotate: -45deg;
+    }
 }

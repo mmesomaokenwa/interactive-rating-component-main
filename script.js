@@ -24,9 +24,15 @@ window.onload = () => {
         } else {
             // Show the selected rating in the UI
             selectedRating.textContent = parseInt(index + 1);
+            
+            submitBtn.classList.add('button-clicked')
+            
             // Hide the start rating and show the end rating
-            ratingStart.style.display = 'none';
+            setTimeout(() => {
+                ratingStart.style.display = 'none';
             ratingEnd.style.display = '';
+            }, 3000)
+            
         }
     })
 }
